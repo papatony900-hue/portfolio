@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fresnel Crésus — Portfolio Professionnel</title>
+  <style>
+    /* Palette violet / bleu futuriste */
+    :root{
+      --bg:#0b0f1a;
+      --card:#0f1724;
+      --muted:#98a0b3;
+      --accent1:#6c5ce7; /* violet */
+      --accent2:#00d4ff; /* bleu */
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-w:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--muted);background:linear-gradient(180deg,#06070a 0%, #071029 60%);}
+
+    /* NAV */
+    header{position:fixed;inset:0 0 auto 0;padding:18px 32px;background:linear-gradient(90deg, rgba(12,14,25,0.6), rgba(6,9,20,0.4));backdrop-filter: blur(6px);display:flex;align-items:center;justify-content:space-between;z-index:40}
+    .brand{display:flex;align-items:center;gap:12px;color:white}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    nav{display:flex;gap:18px}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent2)}
+
+    /* MAIN */
+    main{max-width:var(--max-w);margin:110px auto 60px;padding:0 20px}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:36px;box-shadow:0 10px 30px rgba(3,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .hero h1{margin:0;font-size:34px;color:white}
+    .hero p{color:var(--muted);margin-top:10px;line-height:1.6}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:12px 18px;border-radius:10px;text-decoration:none}
+
+    /* profile card */
+    .profile{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);text-align:center}
+    .profile img{width:120px;height:120px;object-fit:cover;border-radius:12px;margin-bottom:12px;border:3px solid rgba(255,255,255,0.04)}
+    .profile h3{color:white;margin:6px 0}
+    .profile small{color:var(--muted)}
+
+    /* sections */
+    section.section{margin-top:30px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    h2.section-title{color:var(--accent1);margin:0 0 12px 0}
+
+    /* skills */
+    .skills{display:flex;gap:10px;flex-wrap:wrap}
+    .skill{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
+
+    /* projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .project-card h3{margin:0;color:white}
+    .project-card p{color:var(--muted);margin-top:10px}
+    .project-links{margin-top:12px;display:flex;gap:10px}
+
+    /* contact */
+    .contact-form input,.contact-form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);resize:none}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+    footer{margin-top:50px;text-align:center;color:var(--muted);padding:28px 0}
+
+    /* responsive */
+    @media(max-width:940px){.hero{grid-template-columns:1fr 1fr}.projects-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.profile img{width:110px;height:110px}}
+    @media(max-width:680px){header{padding:12px 16px}nav{display:none}.hero{grid-template-columns:1fr}.main{padding:16px}.contact-grid{grid-template-columns:1fr}}
+
+    /* subtle animations */
+    .fade-up{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+    .fade-up.in{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">FC</div>
+      <div>
+        <div style="font-weight:700;color:white">Fresnel Crésus</div>
+        <div style="font-size:12px;color:var(--muted)">Développeur Web — Junior</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <div class="hero">
+      <div class="hero-card fade-up in">
+        <h1>Portfolio professionnel — Fresnel Crésus</h1>
+        <p>Je conçois des sites propres, rapides et modernes. Je suis débutant mais ambitieux — je crée des solutions simples et professionnelles pour petites entreprises et freelances.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">Voir mes projets</a>
+          <a class="ghost" href="#contact">Me contacter</a>
+        </div>
+      </div>
+
+      <aside class="profile fade-up in">
+        <!-- image placeholder uses the uploaded file path -->
+        <img src="/mnt/data/859e7021-7a86-4d11-8961-05a68a736383.png" alt="Photo Fresnel (placeholder)">
+        <h3>Fresnel Crésus</h3>
+        <small>Développeur Web — HTML / CSS / JavaScript</small>
+        <div style="margin-top:12px"><a class="btn" href="mailto:fresnelkpanhoun@gmail.com">Envoyer un email</a></div>
+      </aside>
+    </div>
+
+    <section id="about" class="section">
+      <div class="card fade-up in">
+        <h2 class="section-title">À propos</h2>
+        <p>Je suis un développeur web en apprentissage, concentré sur la création d'interfaces claires et performantes. J'aime résoudre des problèmes et transformer des idées en sites web utilisables.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title">Compétences</h2>
+      <div class="grid-3">
+        <div class="card fade-up in">
+          <h3>Tech stack</h3>
+          <div class="skills" style="margin-top:12px">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Responsive</div>
+            <div class="skill">Git (basique)</div>
+          </div>
+        </div>
+        <div class="card fade-up in">
+          <h3>Outils</h3>
+          <ul>
+            <li>VS Code</li>
+            <li>Chrome DevTools</li>
+            <li>Netlify</li>
+          </ul>
+        </div>
+        <div class="card fade-up in">
+          <h3>Approche</h3>
+          <p>Design minimal, performance, accessibilité et facilité de maintenance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title">Projets</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-up in">
+          <h3>Portfolio Pro</h3>
+          <p>Site personnel moderne, responsive et prêt pour la mise en ligne. Conçu pour présenter compétences et services.</p>
+          <div class="project-links">
+            <a class="btn" href="#">Live</a>
+            <a class="ghost" href="#">Code</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-up in">
+          <h3>Générateur de CV (à venir)</h3>
+          <p>Outil pour remplir un formulaire et générer un CV en PDF (fonctionnalité en développement).</p>
+          <div class="project-links">
+            <a class="btn" href="#">Voir</a>
+            <a class="ghost" href="#">Code</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <div class="contact-grid">
+          <div>
+            <p>Envie de travailler ensemble ? Envoie un email à :</p>
+            <p style="color:white;font-weight:700">fresnelkpanhoun@gmail.com</p>
+            <p style="color:var(--muted);margin-top:8px">Ou utilise le formulaire ci-contre pour m'envoyer un message rapidement.</p>
+          </div>
+          <div>
+            <form class="contact-form" onsubmit="return sendMail(event)">
+              <input id="name" placeholder="Ton nom" required />
+              <input id="email" type="email" placeholder="Ton email" required />
+              <textarea id="message" rows="5" placeholder="Ton message" required></textarea>
+              <div style="display:flex;gap:10px;margin-top:10px">
+                <button class="btn" type="submit">Envoyer</button>
+                <button class="ghost" type="button" onclick="resetForm()">Réinitialiser</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Fresnel Crésus — Tous droits réservés
+    </footer>
+  </main>
+
+  <script>
+    // Smooth reveal
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in') }})
+    },{threshold:0.12})
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
+
+    // Simple mailto fallback to owner email
+    function sendMail(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Contact portfolio — ' + name);
+      const body = encodeURIComponent('Nom: '+name+'
+Email: '+email+'
+
+'+message);
+      window.location.href = `mailto:fresnelkpanhoun@gmail.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+    function resetForm(){ document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('message').value=''}
+  </script>
+</body>
+</html>
